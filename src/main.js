@@ -10,8 +10,6 @@ const gallery = document.querySelector('.gallery');
 
 searchForm.addEventListener('submit', heandleSubmit);
 
-// функция поиска фото
-
 function heandleSubmit(event) {
   event.preventDefaul();
   gallery.innerHTML = '';
@@ -35,7 +33,6 @@ function heandleSubmit(event) {
         captionDelay: 250,
       });
 
-      refreshPage.refresh();
       searchForm.reset();
     })
 
