@@ -25,5 +25,5 @@ import{i as u,S as d}from"./assets/vendor-0fc460d7.js";(function(){const s=docum
             <p class="amount">${n}</p>
           </div>
         </div>
-      </li>`).join("")}const c=document.querySelector(".js-form"),a=document.querySelector(".gallery");c.addEventListener("submit",f);function f(i){i.preventDefaul(),a.innerHTML="";const s=i.target.elements.search.value.trim();getPicture(s).then(r=>{r.hits.length||u.error({title:"Error",message:"Sorry, there are no images matching your search query. Please try again!"}),a.innerHTML=m(r.hits),new d(".gallery a",{captions:!0,captionsData:"alt",captionDelay:250}),refreshPage.refresh(),c.reset()}).catch(r=>{console.log(r)})}
+      </li>`).join("")}const a=document.querySelector(".js-form"),c=document.querySelector(".gallery");a.addEventListener("submit",f);function f(i){i.preventDefaul(),c.innerHTML="";const s=i.target.elements.search.value.trim();getPicture(s).then(r=>{r.hits.length||u.error({title:"Error",message:"Sorry, there are no images matching your search query. Please try again!"}),c.innerHTML=m(r.hits),new d(".gallery a",{captions:!0,captionsData:"alt",captionDelay:250}),a.reset()}).catch(r=>{console.log(r)})}
 //# sourceMappingURL=commonHelpers.js.map
