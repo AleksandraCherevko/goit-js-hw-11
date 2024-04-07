@@ -5,21 +5,35 @@
   |============================
 */
 @import url('./reset.css');
-@import url('./vite-promo.css');
-@import url('./header.css');
 
-:root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+form {
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+input {
+  width: 250px;
+  height: 42px;
+  padding-left: 15px;
+  border-radius: 42px;
+  border: 2px solid #324b4e;
+  background: #f9f0da;
+  outline: none;
+  position: relative;
+  transition: 0.3s linear;
+}
+input:focus {
+  width: 300px;
+}
 
-  color: #242424;
-  background-color: rgba(255, 255, 255, 0.87);
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+button {
+  width: 100px;
+  height: 42px;
+  border: 2px solid #324b4e;
+  background: #324b4e;
+  align-content: center;
+  border-radius: 42px;
+  color: #f9f0da;
 }
