@@ -7,7 +7,7 @@ export function fetchRequest(name) {
   }
 
   const searchParams = new URLSearchParams({
-    key: API_KEY,
+    key: KEY,
     q: name,
     image_type: 'photo',
     orientation: 'horizontal',
@@ -16,13 +16,8 @@ export function fetchRequest(name) {
 
   return fetch(`${BASE_URL}?${searchParams}`).then(response => {
     if (!response.ok) {
-      throw new Error('Failed to fetch images');
+      throw new Error(response.statusText);
     }
     return response.json();
   });
-  // .then(data => data.hits)
-  // .catch(error => {
-  //   console.error(error);
-  //   throw new Error('Failed to fetch images');
-  // });
 }

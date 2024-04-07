@@ -1,9 +1,7 @@
-import { createMarkup } from './js/render-functions';
-import { fetchRequest } from './js/pixabay-api';
-
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
-
+import { createMarkup } from './js/render-functions';
+import { fetchRequest } from './js/pixabay-api';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
@@ -19,7 +17,7 @@ function heandleSubmit(event) {
   gallery.innerHTML = '';
   const inputValue = event.target.elements.search.value.trim();
 
-  fetchRequest(inputValue)
+  getPicture(inputValue)
     .then(data => {
       if (!data.hits.length) {
         iziToast.error({
@@ -28,6 +26,7 @@ function heandleSubmit(event) {
             'Sorry, there are no images matching your search query. Please try again!',
         });
       }
+
       gallery.innerHTML = ('beforeend', createMarkup(data.hits));
 
       let lightbox = new SimpleLightbox('.gallery a', {
@@ -36,7 +35,7 @@ function heandleSubmit(event) {
         captionDelay: 250,
       });
 
-      fetchRequest.refresh();
+      refreshPage.refresh();
       searchForm.reset();
     })
 
