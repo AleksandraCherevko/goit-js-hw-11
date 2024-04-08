@@ -11,11 +11,11 @@ const gallery = document.querySelector('.gallery');
 searchForm.addEventListener('submit', heandleSubmit);
 
 function heandleSubmit(event) {
-  event.preventDefaul();
+  event.preventDefault();
   gallery.innerHTML = '';
-  const inputValue = event.target.elements.search.value.trim();
+  const inputValue = event.currentTarget.querySelector('.search-input').value;
 
-  getPicture(inputValue)
+  fetchRequest(inputValue)
     .then(data => {
       if (!data.hits.length) {
         iziToast.error({
@@ -25,14 +25,21 @@ function heandleSubmit(event) {
         });
       }
 
+      return data;
+    })
+
+    .then(data => {
+      console.log(data);
+
       gallery.innerHTML = ('beforeend', createMarkup(data.hits));
 
-      let lightbox = new SimpleLightbox('.gallery a', {
+      const lightbox = new SimpleLightbox('.gallery a', {
         captions: true,
         captionsData: 'alt',
         captionDelay: 250,
       });
 
+      lightbox.refresh();
       searchForm.reset();
     })
 
