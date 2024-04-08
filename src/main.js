@@ -8,6 +8,7 @@ import 'izitoast/dist/css/iziToast.min.css';
 const searchForm = document.querySelector('.js-form');
 const gallery = document.querySelector('.gallery');
 const loader = document.querySelector('.loader');
+loader.style.display = 'none';
 
 searchForm.addEventListener('submit', handleSubmit);
 
