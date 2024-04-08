@@ -13,13 +13,11 @@ export function createMarkup(arr) {
       }) =>
         `<li class="gallery-item" data-id='${id}'>
        <a class="gallery-link" href="${largeImageURL}">
-     <img
+          <img
             class="gallery-image"
             src="${webformatURL}"
-            alt="${tags}"
-      
-         
-          /></div>
+            alt="${tags}"/>
+            </div>
         </a>
         <div class="thumb-block">
           <div class="block">

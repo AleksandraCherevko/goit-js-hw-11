@@ -7,16 +7,21 @@ import 'izitoast/dist/css/iziToast.min.css';
 
 const searchForm = document.querySelector('.js-form');
 const gallery = document.querySelector('.gallery');
+const loader = document.querySelector('.loader');
 
 searchForm.addEventListener('submit', handleSubmit);
 
 function handleSubmit(event) {
   event.preventDefault();
   gallery.innerHTML = '';
+
+  loader.style.display = 'block';
+
   const inputValue = event.currentTarget.querySelector('.search-input').value;
 
   fetchRequest(inputValue)
     .then(data => {
+      loader.style.display = 'none';
       if (!data.hits.length) {
         iziToast.error({
           title: 'Error',
@@ -42,6 +47,7 @@ function handleSubmit(event) {
     })
 
     .catch(error => {
+      loader.style.display = 'none';
       iziToast.error({
         title: 'Error',
         message:
@@ -49,3 +55,5 @@ function handleSubmit(event) {
       });
     });
 }
+
+//
