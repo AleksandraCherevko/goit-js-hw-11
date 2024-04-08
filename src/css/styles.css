@@ -150,8 +150,8 @@ button {
 /*  */
 
 .loader {
-  border: 16px solid #f3f3f3;
-  border-top: 16px solid #3498db;
+  border: 16px solid #f9f0da;
+  border-top: 16px solid #324b4e;
   border-radius: 50%;
   width: 120px;
   height: 120px;
