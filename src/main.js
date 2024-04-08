@@ -55,5 +55,3 @@ function handleSubmit(event) {
       });
     });
 }
-
-//
