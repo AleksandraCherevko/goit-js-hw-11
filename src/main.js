@@ -8,9 +8,9 @@ import 'izitoast/dist/css/iziToast.min.css';
 const searchForm = document.querySelector('.js-form');
 const gallery = document.querySelector('.gallery');
 
-searchForm.addEventListener('submit', heandleSubmit);
+searchForm.addEventListener('submit', handleSubmit);
 
-function heandleSubmit(event) {
+function handleSubmit(event) {
   event.preventDefault();
   gallery.innerHTML = '';
   const inputValue = event.currentTarget.querySelector('.search-input').value;
@@ -29,8 +29,6 @@ function heandleSubmit(event) {
     })
 
     .then(data => {
-      console.log(data);
-
       gallery.innerHTML = ('beforeend', createMarkup(data.hits));
 
       const lightbox = new SimpleLightbox('.gallery a', {
@@ -44,6 +42,10 @@ function heandleSubmit(event) {
     })
 
     .catch(error => {
-      console.log(error);
+      iziToast.error({
+        title: 'Error',
+        message:
+          'Sorry, there are no images matching your search query. Please try again!',
+      });
     });
 }
