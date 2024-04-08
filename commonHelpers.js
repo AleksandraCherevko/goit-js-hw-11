@@ -1,29 +1,30 @@
-import{i as u,S as d}from"./assets/vendor-0fc460d7.js";(function(){const s=document.createElement("link").relList;if(s&&s.supports&&s.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))l(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const o of t.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&l(o)}).observe(document,{childList:!0,subtree:!0});function r(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?t.credentials="include":e.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function l(e){if(e.ep)return;e.ep=!0;const t=r(e);fetch(e.href,t)}})();function m(i){return i.map(({webformatURL:s,largeImageURL:r,tags:l,likes:e,views:t,comments:o,downloads:n})=>` <li class="gallery-item">
-        <a class="gallery-link" href="${r}">
-          <img
+import{i as h,S as f}from"./assets/vendor-0fc460d7.js";(function(){const s=document.createElement("link").relList;if(s&&s.supports&&s.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))i(e);new MutationObserver(e=>{for(const r of e)if(r.type==="childList")for(const a of r.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&i(a)}).observe(document,{childList:!0,subtree:!0});function t(e){const r={};return e.integrity&&(r.integrity=e.integrity),e.referrerPolicy&&(r.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?r.credentials="include":e.crossOrigin==="anonymous"?r.credentials="omit":r.credentials="same-origin",r}function i(e){if(e.ep)return;e.ep=!0;const r=t(e);fetch(e.href,r)}})();function d(o){return o.map(({id:s,webformatURL:t,largeImageURL:i,tags:e,likes:r,views:a,comments:l,downloads:u})=>`<li class="gallery-item" data-id='${s}'>
+       <a class="gallery-link" href="${i}">
+     <img
             class="gallery-image"
-            src="${s}"
-            alt="${l}"
-            width="360"
-          />
+            src="${t}"
+            alt="${e}"
+      
+         
+          /></div>
         </a>
         <div class="thumb-block">
           <div class="block">
             <h2 class="tittle">Likes</h2>
-            <p class="amount">${e}</p>
+            <p class="amount">${r}</p>
           </div>
           <div class="block">
             <h2 class="tittle">Views</h2>
-            <p class="amount">${t}</p>
+            <p class="amount">${a}</p>
           </div>
           <div class="block">
             <h2 class="tittle">Comments</h2>
-            <p class="amount">${o}</p>
+            <p class="amount">${l}</p>
           </div>
           <div class="block">
             <h2 class="tittle">Downloads</h2>
-            <p class="amount">${n}</p>
+            <p class="amount">${u}</p>
           </div>
-        </div>
-      </li>`).join("")}const a=document.querySelector(".js-form"),c=document.querySelector(".gallery");a.addEventListener("submit",f);function f(i){i.preventDefaul(),c.innerHTML="";const s=i.target.elements.search.value.trim();getPicture(s).then(r=>{r.hits.length||u.error({title:"Error",message:"Sorry, there are no images matching your search query. Please try again!"}),c.innerHTML=m(r.hits),new d(".gallery a",{captions:!0,captionsData:"alt",captionDelay:250}),a.reset()}).catch(r=>{console.log(r)})}
+
+      </li> `).join("")}function m(o){const s="https://pixabay.com/api/",t="43242855-c6b7005837cbd7f2bbf3eb2ae",i=new URLSearchParams({key:t,q:o,image_type:"photo",orientation:"horizontal",safesearch:!0});return fetch(`${s}?${i}`).then(e=>{if(!e.ok)throw new Error(e.statusText);return e.json()})}const n=document.querySelector(".js-form"),c=document.querySelector(".gallery");n.addEventListener("submit",p);function p(o){o.preventDefault(),c.innerHTML="";const s=o.currentTarget.querySelector(".search-input").value;m(s).then(t=>(t.hits.length||h.error({title:"Error",message:"Sorry, there are no images matching your search query. Please try again!"}),t)).then(t=>{console.log(t),c.innerHTML=d(t.hits),new f(".gallery a",{captions:!0,captionsData:"alt",captionDelay:250}).refresh(),n.reset()}).catch(t=>{console.log(t)})}
 //# sourceMappingURL=commonHelpers.js.map
